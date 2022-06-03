@@ -1,0 +1,43 @@
+.loginBox {
+  padding: 20px;
+}
+.loginBox > input {
+  width: 200px;
+  margin-top: 10px;
+  height: 25px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  height: 70px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.button {
+  height: 25px;
+  width: 70px;
+}
+.link {
+  text-decoration: none;
+}
+.jewelery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto);
+  gap: 10px;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+}
+.jewelery > div {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.jeweleryImg {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 250px;
+  height: 200px;
+}
