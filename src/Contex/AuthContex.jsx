@@ -1,22 +1,30 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
-// import { useEffect } from "react";
 import { createContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [jewelery, setJewelery] = useState([]);
-  // console.log(jewelery)
-  useEffect(()=>{
-    fetch("https://fakestoreapi.com/products/category/jewelery")
-    .then((res) => res.json())
-    .then((data) => setJewelery(data));
-  },[])
-  
-
+  const state = useLocation();
+  // console.log(state);
+  const [isAuth, setIsAuth] = useState(false);
+  const navigate = useNavigate();
+  const login = () => {
+    setIsAuth(true);
+    if (state.from) {
+      navigate(state.pathname, { replace: true });
+    } else {
+      navigate("/");
+    }
+  };
+  const logout = () => {
+    setIsAuth(false);
+    navigate("/");
+  };
   return (
-    <AuthContext.Provider value={{jewelery}}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ isAuth, login, logout }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
